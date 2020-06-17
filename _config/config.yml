@@ -1,0 +1,6 @@
+---
+Name: elemental-extension
+---
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_javascript:
+    - tbone/elemental-extension:client/dist/js/bundle.js

@@ -1,0 +1,17 @@
+{
+    "name": "@tbone/elemental-extension",
+    "version": "1.0.0",
+    "description": "Basic extension",
+    "scripts": {
+        "start": "webpack-dev-server --open --mode development",
+        "build": "webpack",
+        "watch": "webpack --watch --progress"
+    },
+    "author": "Tyler Trout",
+    "license": "BSD-3-Clause",
+    "devDependencies": {},
+    "dependencies": {
+        "@silverstripe/react-injector": "^0.2.1",
+        "@silverstripe/webpack-config": "^1.6.0"
+    }
+}
