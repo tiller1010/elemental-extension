@@ -23,17 +23,19 @@ const PATHS = {
   THIRDPARTY: 'thirdparty',
   // the root path to your javascript source files
   SRC: Path.resolve('client/src'),
+  // Dist
+  DIST: Path.resolve('client/dist'),
 };
 
 const config = [
   {
     name: 'js',
     entry: {
-      main: 'js/src/main.js'
+      main: `${PATHS.SRC}/js/src/main.js`
     },
     output: {
-      path: 'js/dist',
-      filename: '[name].bundle.js',
+      path: PATHS.DIST,
+      filename: 'js/[name].bundle.js',
     },
     devtool: (ENV !== 'production') ? 'source-map' : '',
     resolve: resolveJS(ENV, PATHS),
@@ -44,11 +46,11 @@ const config = [
   {
     name: 'css',
     entry: {
-      main: 'css/src/main.scss'
+      main: `${PATHS.SRC}/scss/main.scss`
     },
     output: {
-      path: 'css/dist',
-      filename: '[name].css'
+      path: PATHS.DIST,
+      filename: 'styles/[name].css'
     },
     devtool: (ENV !== 'production') ? 'source-map' : '',
     module: moduleCSS(ENV, PATHS),

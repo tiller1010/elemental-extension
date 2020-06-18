@@ -1,0 +1,12 @@
+{
+    "name": "tbone/elemental-extension",
+    "description": "Elemental extension",
+    "type": "silverstripe-vendormodule",
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

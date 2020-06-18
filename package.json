@@ -9,7 +9,10 @@
     },
     "author": "Tyler Trout",
     "license": "BSD-3-Clause",
-    "devDependencies": {},
+    "devDependencies": {
+        "webpack": "^2.7.0",
+        "webpack-dev-server": "^3.10.1"
+    },
     "dependencies": {
         "@silverstripe/react-injector": "^0.2.1",
         "@silverstripe/webpack-config": "^1.6.0"
