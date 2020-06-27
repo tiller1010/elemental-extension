@@ -7,6 +7,9 @@
             "client/dist"
         ]
     },
+    "require": {
+        "dnadesign/silverstripe-elemental": "^4"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
