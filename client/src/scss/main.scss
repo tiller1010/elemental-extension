@@ -1,3 +1,14 @@
-body{
-	background: black;
+.element-editor__element[title="Edit this Columns Element block"]{
+	.tab-content{
+		.fade.show{
+			display: flex;
+			flex-wrap: wrap;
+			#Form_ElementForm_5_Title_Holder{
+				width: 100%;
+			}
+			.htmleditor{
+				width: 33%;
+			}
+		}
+	}
 }
