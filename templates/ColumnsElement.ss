@@ -1,13 +1,19 @@
 <div class="columns-element">
-	<div class="flex-container">
-		<div class="desktop-33">
-			$ColumnOneContent
+	<div class="flex">
+		<div class="d-33 m-100">
+			<div class="pad">
+				$ColumnOneContent
+			</div>
 		</div>
-		<div class="desktop-33">
-			$ColumnTwoContent
+		<div class="d-33 m-100">
+			<div class="pad">
+				$ColumnTwoContent
+			</div>
 		</div>
-		<div class="desktop-33">
-			$ColumnThreeContent
+		<div class="d-33 m-100">
+			<div class="pad">
+				$ColumnThreeContent
+			</div>
 		</div>
 	</div>
 </div>
