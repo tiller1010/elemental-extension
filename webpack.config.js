@@ -23,6 +23,7 @@ const PATHS = {
   THIRDPARTY: 'thirdparty',
   // the root path to your javascript source files
   SRC: Path.resolve('client/src'),
+  TINYMCE: Path.resolve('client/src/js/tinymce'),
   // Dist
   DIST: Path.resolve('client/dist'),
 };
@@ -31,7 +32,7 @@ const config = [
   {
     name: 'js',
     entry: {
-      main: `${PATHS.SRC}/js/src/main.js`
+      main: `${PATHS.SRC}/js/main.jsx`
     },
     output: {
       path: PATHS.DIST,
@@ -55,6 +56,26 @@ const config = [
     devtool: (ENV !== 'production') ? 'source-map' : '',
     module: moduleCSS(ENV, PATHS),
     plugins: pluginCSS(ENV, PATHS),
+  },
+  {
+    name: 'tinymce',
+    entry: {
+      'TinyMCE_sslink-article': `${PATHS.TINYMCE}/TinyMCE_sslink-article.jsx`,
+    },
+    output: {
+      path: PATHS.DIST,
+      filename: 'js/[name].bundle.js',
+    },
+    devtool: (ENV !== 'production') ? 'source-map' : '',
+    resolve: resolveJS(ENV, PATHS),
+    externals: externalJS(ENV, PATHS),
+    module: moduleJS(ENV, PATHS),
+    plugins: [
+      ...pluginJS(ENV, PATHS),
+    ],
+    watchOptions: {
+      poll: true
+    }
   },
 ];
 
