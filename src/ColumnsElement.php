@@ -1,7 +1,10 @@
 <?php
 
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\NumericField;
 
 class ColumnsElement extends BaseElement {
 
@@ -18,8 +21,6 @@ class ColumnsElement extends BaseElement {
 	public function getCMSFields()
 	{
 		$fields = parent::getCMSFields();
-
-		// $fields->addFieldToTab('Root.Main', HTMLEditorField::create('ColumnOneContent'));
 
 		return $fields;
 	}

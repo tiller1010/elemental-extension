@@ -1,0 +1,26 @@
+import jQuery from 'jquery';
+
+jQuery.entwine('ss', ($) => {
+  $('.js-injector-boot .form__field-holder .width-slider-field').entwine({
+    onmatch() {
+      const Component = loadComponent('WidthSliderField');
+      const schemaState = this.data('state');
+
+      const setValue = (fieldName, value) => {
+        const input = document.querySelector(`input[name="${fieldName}"]`);
+
+        if (!input) {
+          return;
+        }
+
+        input.value = value;
+      };
+
+      ReactDOM.render(<Component {...schemaState} onAutofill={setValue} />, this[0]);
+    },
+
+    onunmatch() {
+      ReactDOM.unmountComponentAtNode(this[0]);
+    },
+  });
+});
