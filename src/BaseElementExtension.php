@@ -1,5 +1,7 @@
 <?php
 
+namespace Tbone\ElementalExtension;
+
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
@@ -16,5 +18,7 @@ class BaseElementExtension extends DataExtension {
 	{
 		$fields->removeByName('DesktopWidth');
 		$fields->insertBefore(WidthSliderField::create('DesktopWidth'), 'PhoneWidth');
+		$fields->removeByName('PhoneWidth');
+		$fields->insertBefore(WidthSliderField::create('PhoneWidth'), 'Title');
 	}
 }

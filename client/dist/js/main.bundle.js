@@ -114,13 +114,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactstrap = __webpack_require__(7);
+var _reactstrap = __webpack_require__(6);
 
-var _propTypes = __webpack_require__(6);
+var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _FieldHolder = __webpack_require__(5);
+var _FieldHolder = __webpack_require__(4);
 
 var _FieldHolder2 = _interopRequireDefault(_FieldHolder);
 
@@ -231,16 +231,26 @@ exports.default = (0, _FieldHolder2.default)(WidthSliderField);
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _jquery = __webpack_require__(4);
+var _jquery = __webpack_require__(7);
 
 var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Injector = __webpack_require__(3);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(2);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _jquery2.default.entwine('ss', function ($) {
   $('.js-injector-boot .form__field-holder .width-slider-field').entwine({
     onmatch: function onmatch() {
-      var Component = loadComponent('WidthSliderField');
+      var Component = (0, _Injector.loadComponent)('WidthSliderField');
       var schemaState = this.data('state');
 
       var setValue = function setValue(fieldName, value) {
@@ -253,10 +263,10 @@ _jquery2.default.entwine('ss', function ($) {
         input.value = value;
       };
 
-      ReactDOM.render(React.createElement(Component, _extends({}, schemaState, { onAutofill: setValue })), this[0]);
+      _reactDom2.default.render(_react2.default.createElement(Component, _extends({}, schemaState, { onAutofill: setValue })), this[0]);
     },
     onunmatch: function onunmatch() {
-      ReactDOM.unmountComponentAtNode(this[0]);
+      _reactDom2.default.unmountComponentAtNode(this[0]);
     }
   });
 });
@@ -327,7 +337,7 @@ var PowerButton = function PowerButton(ElementInlineEditForm) {
 			_react2.default.createElement(ElementInlineEditForm, props),
 			_react2.default.createElement(
 				'button',
-				{ onClick: function onClick() {
+				{ className: 'btn btn-primary font-icon-plus', onClick: function onClick() {
 						return setPower(power + 1);
 					} },
 				'Power up ',
@@ -335,6 +345,10 @@ var PowerButton = function PowerButton(ElementInlineEditForm) {
 			)
 		);
 	};
+};
+
+var widthSliderStyles = {
+	maxWidth: '860px'
 };
 
 var WidthSlider = function WidthSlider(WidthField) {
@@ -360,6 +374,7 @@ var WidthSlider = function WidthSlider(WidthField) {
 				max: 100
 			})),
 			_react2.default.createElement(_rcSlider2.default, {
+				style: widthSliderStyles,
 				value: value,
 				onChange: function onChange(newValue) {
 					setValue(newValue);
@@ -12582,28 +12597,28 @@ module.exports = Injector;
 /***/ 4:
 /***/ (function(module, exports) {
 
-module.exports = jQuery;
+module.exports = FieldHolder;
 
 /***/ }),
 
 /***/ 5:
 /***/ (function(module, exports) {
 
-module.exports = FieldHolder;
+module.exports = PropTypes;
 
 /***/ }),
 
 /***/ 6:
 /***/ (function(module, exports) {
 
-module.exports = PropTypes;
+module.exports = Reactstrap;
 
 /***/ }),
 
 /***/ 7:
 /***/ (function(module, exports) {
 
-module.exports = Reactstrap;
+module.exports = jQuery;
 
 /***/ })
 

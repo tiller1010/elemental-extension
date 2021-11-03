@@ -1,5 +1,7 @@
 <?php
 
+namespace Tbone\ElementalExtension;
+
 use SilverStripe\Admin\Forms\LinkFormFactory;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;

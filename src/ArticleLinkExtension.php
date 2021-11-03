@@ -1,5 +1,7 @@
 <?php
 
+namespace Tbone\ElementalExtension;
+
 use Silverstripe\Core\Extension;
 
 class ArticleLinkExtension extends Extension {

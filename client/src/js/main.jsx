@@ -26,9 +26,13 @@ const PowerButton = (ElementInlineEditForm) => (props) => {
 	return (
 		<React.Fragment>
 			<ElementInlineEditForm {...props} />
-			<button onClick={() => setPower(power + 1)}>Power up {power}</button>
+			<button className="btn btn-primary font-icon-plus" onClick={() => setPower(power + 1)}>Power up {power}</button>
 		</React.Fragment>
 	);
+}
+
+const widthSliderStyles = {
+	maxWidth: '860px'
 }
 
 const WidthSlider = (WidthField) => (props) => {
@@ -49,7 +53,8 @@ const WidthSlider = (WidthField) => (props) => {
 				min={0}
 				max={100}
 			/>
-			<Slider 
+			<Slider
+				style={widthSliderStyles}
 				value={value}
 				onChange={(newValue) => {
 					setValue(newValue);
