@@ -229,8 +229,6 @@ exports.default = (0, _FieldHolder2.default)(WidthSliderField);
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _jquery = __webpack_require__(7);
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -253,17 +251,10 @@ _jquery2.default.entwine('ss', function ($) {
       var Component = (0, _Injector.loadComponent)('WidthSliderField');
       var schemaState = this.data('state');
 
-      var setValue = function setValue(fieldName, value) {
-        var input = document.querySelector('input[name="' + fieldName + '"]');
+      schemaState.initialValue = schemaState.value;
+      delete schemaState.value;
 
-        if (!input) {
-          return;
-        }
-
-        input.value = value;
-      };
-
-      _reactDom2.default.render(_react2.default.createElement(Component, _extends({}, schemaState, { onAutofill: setValue })), this[0]);
+      _reactDom2.default.render(_react2.default.createElement(Component, schemaState), this[0]);
     },
     onunmatch: function onunmatch() {
       _reactDom2.default.unmountComponentAtNode(this[0]);
@@ -348,7 +339,8 @@ var PowerButton = function PowerButton(ElementInlineEditForm) {
 };
 
 var widthSliderStyles = {
-	maxWidth: '860px'
+	maxWidth: '860px',
+	marginBottom: '10px'
 };
 
 var WidthSlider = function WidthSlider(WidthField) {
@@ -360,6 +352,8 @@ var WidthSlider = function WidthSlider(WidthField) {
 
 		if (props.value || props.value == 0) {
 			value = props.value;
+		} else if (props.initialValue && !value) {
+			value = props.initialValue;
 		}
 
 		return _react2.default.createElement(
@@ -368,7 +362,9 @@ var WidthSlider = function WidthSlider(WidthField) {
 			_react2.default.createElement(WidthField, _extends({}, _extends({}, props, { value: value }), {
 				onChange: function onChange(e) {
 					setValue(e.target.value);
-					props.onChange(e, { id: props.id, value: e.target.value });
+					if (props.onChange) {
+						props.onChange(e, { id: props.id, value: e.target.value });
+					}
 				},
 				min: 0,
 				max: 100
@@ -378,7 +374,9 @@ var WidthSlider = function WidthSlider(WidthField) {
 				value: value,
 				onChange: function onChange(newValue) {
 					setValue(newValue);
-					props.onChange(newValue, { id: props.id, value: newValue });
+					if (props.onChange) {
+						props.onChange(newValue, { id: props.id, value: newValue });
+					}
 				},
 				marks: {
 					25: '25%',

@@ -32,14 +32,18 @@ const PowerButton = (ElementInlineEditForm) => (props) => {
 }
 
 const widthSliderStyles = {
-	maxWidth: '860px'
+	maxWidth: '860px',
+	marginBottom: '10px'
 }
 
 const WidthSlider = (WidthField) => (props) => {
 
 	let [value, setValue] = React.useState(props.value);
+	// If props value if passed in. Otherwise use state value
 	if(props.value || props.value == 0){
 		value = props.value;
+	} else if(props.initialValue && !value) {
+		value = props.initialValue;
 	}
 
 	return (
@@ -48,7 +52,9 @@ const WidthSlider = (WidthField) => (props) => {
 				{ ...{...props, value }}
 				onChange={(e) => {
 					setValue(e.target.value);
-					props.onChange(e, { id: props.id, value: e.target.value });
+					if(props.onChange){
+						props.onChange(e, { id: props.id, value: e.target.value });
+					}
 				}}
 				min={0}
 				max={100}
@@ -58,7 +64,9 @@ const WidthSlider = (WidthField) => (props) => {
 				value={value}
 				onChange={(newValue) => {
 					setValue(newValue);
-					props.onChange(newValue, { id: props.id, value: newValue });
+					if(props.onChange){
+						props.onChange(newValue, { id: props.id, value: newValue });
+					}
 				}}
 				marks={{
 					25: '25%',

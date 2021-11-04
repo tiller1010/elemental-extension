@@ -9,17 +9,10 @@ jQuery.entwine('ss', ($) => {
       const Component = loadComponent('WidthSliderField');
       const schemaState = this.data('state');
 
-      const setValue = (fieldName, value) => {
-        const input = document.querySelector(`input[name="${fieldName}"]`);
+      schemaState.initialValue = schemaState.value;
+      delete schemaState.value;
 
-        if (!input) {
-          return;
-        }
-
-        input.value = value;
-      };
-
-      ReactDOM.render(<Component {...schemaState} onAutofill={setValue} />, this[0]);
+      ReactDOM.render(<Component {...schemaState} />, this[0]);
     },
 
     onunmatch() {
