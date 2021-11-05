@@ -47,10 +47,11 @@ const config = [
   {
     name: 'css',
     entry: {
-      main: [
-        `${PATHS.SRC}/scss/main.scss`,
+      cms: [
+        `${PATHS.SRC}/scss/cms.scss`,
         `${PATHS.MODULES}/rc-slider/assets/index.css`
-      ]
+      ],
+      site: `${PATHS.SRC}/scss/site.scss`
     },
     output: {
       path: PATHS.DIST,
