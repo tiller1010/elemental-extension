@@ -16,7 +16,7 @@ const PATHS = {
   // the root path, where your webpack.config.js is located.
   ROOT: Path.resolve(),
   // your node_modules folder name, or full path
-  MODULES: 'node_modules',
+  MODULES: Path.resolve('node_modules'),
   // relative path from your css files to your other files, such as images and fonts
   FILES_PATH: '../',
   // thirdparty folder containing copies of packages which wouldn't be available on NPM
@@ -47,7 +47,11 @@ const config = [
   {
     name: 'css',
     entry: {
-      main: `${PATHS.SRC}/scss/main.scss`
+      cms: [
+        `${PATHS.SRC}/scss/cms.scss`,
+        `${PATHS.MODULES}/rc-slider/assets/index.css`
+      ],
+      site: `${PATHS.SRC}/scss/site.scss`
     },
     output: {
       path: PATHS.DIST,

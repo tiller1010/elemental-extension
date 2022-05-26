@@ -1,5 +1,7 @@
 <?php
 
+namespace Tbone\ElementalExtension;
+
 use SilverStripe\Core\Extension;
 
 class LeftAndMain_FormSchemaExtension extends Extension {

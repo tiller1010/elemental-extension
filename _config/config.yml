@@ -5,4 +5,4 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_javascript:
     - tbone/elemental-extension:client/dist/js/main.bundle.js
   extra_requirements_css:
-    - tbone/elemental-extension:client/dist/styles/main.css
+    - tbone/elemental-extension:client/dist/styles/cms.css
