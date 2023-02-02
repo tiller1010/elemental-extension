@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@silverstripe/react-injector": "^0.2.1",
-        "@silverstripe/webpack-config": "^1.6.0",
+        "@silverstripe/webpack-config": "^2.0.0-alpha8",
         "babel-polyfill": "^6.26.0",
         "rc-slider": "^9.7.4"
     },
